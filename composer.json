@@ -1,20 +1,26 @@
 {
-    "name": "autologic-web/redirect-bundle",
+    "name": "smirnov-tk/redirect-bundle",
     "description": "A Symfony bundle for handling redirection",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Matt Halliday",
-            "email": "matt.halliday@autologic.com"
+            "email": "matt.halliday@autologic.com",
+            "role": "Original developer"
+        },
+        {
+            "name": "Roman Smirnov",
+            "email": "roman@smirnov.tk",
+            "role": "Fork developer"
         }
     ],
     "require": {
-        "php": "^5.6|^7.0",
-        "symfony/http-foundation": "^2.7|^3.0|^4.0",
-        "symfony/config": "^2.7|^3.0|^4.0",
-        "symfony/dependency-injection": "^2.7|^3.0|^4.0",
-        "symfony/http-kernel": "^2.7|^3.0|^4.0"
+        "php": ">=5.6, <8.2",
+        "symfony/http-foundation": "^2.7|^3.0|^4.0|^5.0",
+        "symfony/config": "^2.7|^3.0|^4.0|^5.0",
+        "symfony/dependency-injection": "^2.7|^3.0|^4.0|^5.0",
+        "symfony/http-kernel": "^2.7|^3.0|^4.0|^5.0"
     },
     "autoload": {
         "psr-4": {

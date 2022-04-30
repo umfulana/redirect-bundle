@@ -1,12 +1,12 @@
 # Symfony Redirect Bundle
 
-[![Build Status](https://travis-ci.org/autologic-web/redirect-bundle.svg?branch=master)](https://travis-ci.org/autologic-web/redirect-bundle) [![StyleCI](https://styleci.io/repos/106713467/shield?branch=master)](https://styleci.io/repos/106713467) [![Maintainability](https://api.codeclimate.com/v1/badges/350d7d327e474970c66e/maintainability)](https://codeclimate.com/github/autologic-web/redirect-bundle/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/350d7d327e474970c66e/test_coverage)](https://codeclimate.com/github/autologic-web/redirect-bundle/test_coverage)
+[![Build Status](https://app.travis-ci.com/smirnov-tk/redirect-bundle.svg?branch=master)](https://app.travis-ci.com/smirnov-tk/redirect-bundle) [![Maintainability](https://api.codeclimate.com/v1/badges/faf9d53aa9595d67e612/maintainability)](https://codeclimate.com/github/smirnov-tk/redirect-bundle/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/faf9d53aa9595d67e612/test_coverage)](https://codeclimate.com/github/smirnov-tk/redirect-bundle/test_coverage)
 
 Configure redirections after a migration or structural changes to your app/website.
 
 It catches exception events, if they are of type `NotFoundHttpException` it will look for a configured rule and return a `RedirectResponse` response to redirect the user.
 
-Works for Symfony ^2.7, ^3.0 or ^4.0 with PHP ^5.6 or ^7.0
+Works for Symfony ^2.7, ^3.0, ^4.0 or ^5.0 with PHP >= 5.6 and <8.2
 
 It's been designed to be as unobtrusive as possible since the need to do this sort of thing is often temporary - Google recommends leaving them in place for a year. Just include the bundle and add a block of configuration for your redirect rules.
 
@@ -15,7 +15,7 @@ It's been designed to be as unobtrusive as possible since the need to do this so
 Install via Composer
 
 ```bash
-$ composer require autologic-web/redirect-bundle
+$ composer require smirnov-tk/redirect-bundle
 ```
 
 ## Symfony < 4
@@ -46,7 +46,7 @@ class AppKernel extends Kernel
 }
 ```
 
-## Symfony 4
+## Symfony 4 and Symfony 5
 
 Include the bundle in `bundles.php`
 

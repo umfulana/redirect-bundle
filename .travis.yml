@@ -6,6 +6,10 @@ php:
   - '5.6'
   - '7.1'
   - '7.2'
+  - '7.3'
+  - '7.4'
+  - '8.0'
+  - '8.1'
 branches:
   only:
     - /.*/
@@ -14,7 +18,7 @@ script: vendor/bin/phpunit
 jobs:
   include:
     - stage: coverage report
-      php: 7.2
+      php: 8.1
       before_script:
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         - chmod +x ./cc-test-reporter
