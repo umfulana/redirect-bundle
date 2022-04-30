@@ -47,6 +47,9 @@ Use regular expressions to match the full URI being requested. The service catch
 ### `redirect` (string, required)
 The fully qualified redirect URI. The bundle will set the protocol (http/https) based on the incoming original request so it ports from dev to prod easily.
 
+### `full_url` (bool, optional)
+Defines whether to match pattern on full URL (with scheme, domain, path and query) or only path and query (___default: false__)
+
 ### `status` (int, optional)
 Set the status code (__default: 301__) for the redirection. Tip: use 302 while debugging to avoid 301 permanent redirects from being cached in the browser.
 
@@ -79,7 +82,9 @@ autologic_redirect:
     - { pattern: '/.*old-route/', redirect: 'domain.com/new-route' }
     # match subdomains and more complex patterns and use parameters
     - { pattern: '/au\..+?\.[^\/]+.*blog\/old-australian-blog-post-on-any-domain-of-subdomain/',
-        redirect: 'au.%base_domain%/news/new-australian-news-article' }
+        redirect: 'au.%base_domain%/news/new-australian-news-article',
+        full_url: true
+      }
 ```
 
 ## Logging 

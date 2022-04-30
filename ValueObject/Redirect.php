@@ -42,6 +42,11 @@ class Redirect
      */
     private $absolute = null;
 
+    /**
+     * @var null|bool
+     */
+    private $fullURLMatch = false;
+
     public function __construct()
     {
         $this->request = new Request();
@@ -178,12 +183,21 @@ class Redirect
         $redirect = clone $this;
         $redirect->pattern = $rule['pattern'];
         $redirect->redirect = $rule['redirect'];
-        $redirect->URIForwarding = isset($rule['forwarding']) ? $rule['forwarding'] : false;
-        $redirect->statusCode = isset($rule['status']) ? $rule['status'] : Response::HTTP_MOVED_PERMANENTLY;
-        $redirect->protocol = isset($rule['protocol']) ? $rule['protocol'] : null;
-        $redirect->absolute = isset($rule['absolute']) ? $rule['absolute'] : null;
+        $redirect->fullURLMatch = $rule['full_url'] ?? false;
+        $redirect->URIForwarding = $rule['forwarding'] ?? false;
+        $redirect->statusCode = $rule['status'] ?? Response::HTTP_MOVED_PERMANENTLY;
+        $redirect->protocol = $rule['protocol'] ?? null;
+        $redirect->absolute = $rule['absolute'] ?? null;
 
         return $redirect;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFullURLMatch()
+    {
+        return $this->fullURLMatch;
     }
 
     /**
