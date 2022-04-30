@@ -6,7 +6,7 @@ Configure redirections after a migration or structural changes to your app/websi
 
 It catches exception events, if they are of type `NotFoundHttpException` it will look for a configured rule and return a `RedirectResponse` response to redirect the user.
 
-Works for Symfony ^2.7, ^3.0, ^4.0 or ^5.0 with PHP >= 5.6 and <8.2
+Works for Symfony ^4.2 or ^5.0 with PHP >= 7.1.3 and <8.2
 
 It's been designed to be as unobtrusive as possible since the need to do this sort of thing is often temporary - Google recommends leaving them in place for a year. Just include the bundle and add a block of configuration for your redirect rules.
 
@@ -17,36 +17,6 @@ Install via Composer
 ```bash
 $ composer require smirnov-tk/redirect-bundle
 ```
-
-## Symfony < 4
-
-Include the bundle in `AppKernel.php`
-
-```php
-# app/AppKernel.php
-
-/**
- * Class AppKernel
- */
-class AppKernel extends Kernel
-{
-    /**
-     * @return array
-     */
-    public function registerBundles()
-    {
-        $bundles = [
-            // All your bundles
-            
-            new Autologic\Bundle\RedirectBundle\AutologicRedirectBundle(),
-        ];
-        
-        return $bundles;
-    }
-}
-```
-
-## Symfony 4 and Symfony 5
 
 Include the bundle in `bundles.php`
 
@@ -64,7 +34,7 @@ return [
 
 ### Basic Usage
 ```yaml
-# app/config.yml
+# app/config/packages/autologic_redirect.yaml
 
 autologic_redirect:
   rules:
