@@ -194,11 +194,11 @@ class Redirect
         if ($this->isAbsolute() === true) {
             return $this->getRedirect();
         } elseif ($this->isAbsolute() === false) {
-            return $this->getRequest()->getHost().$this->getRedirect();
+            return $this->getRequest()->getHttpHost().$this->getRedirect();
         } else {
             return self::targetHasHost($this->getRedirect())
                 ? $this->getRedirect()
-                : $this->getRequest()->getHost().$this->getRedirect();
+                : $this->getRequest()->getHttpHost().$this->getRedirect();
         }
     }
 
