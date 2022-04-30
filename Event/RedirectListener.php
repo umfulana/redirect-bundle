@@ -5,7 +5,7 @@ namespace Autologic\Bundle\RedirectBundle\Event;
 use Autologic\Bundle\RedirectBundle\Exception\RedirectionRuleNotFoundException;
 use Autologic\Bundle\RedirectBundle\Service\RedirectService;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RedirectListener
@@ -31,13 +31,13 @@ class RedirectListener
     }
 
     /**
-     * @param GetResponseForExceptionEvent $event
+     * @param ExceptionEvent $event
      *
      * @return bool
      */
-    public function onKernelException(GetResponseForExceptionEvent $event)
+    public function onKernelException(ExceptionEvent $event)
     {
-        if ($event->getException() instanceof NotFoundHttpException) {
+        if ($event->getThrowable() instanceof NotFoundHttpException) {
             try {
                 $event->setResponse($this->redirectService->redirect($event->getRequest()));
 
