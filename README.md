@@ -6,7 +6,7 @@ Configure redirections after a migration or structural changes to your app/websi
 
 It catches exception events, if they are of type `NotFoundHttpException` it will look for a configured rule and return a `RedirectResponse` response to redirect the user.
 
-Works for Symfony ^4.2 or ^5.0 with PHP >= 7.1.3 and <8.2
+Works for Symfony ^4.2 or ^5.0 with PHP >= 7.1.3 and <=8.2
 
 It's been designed to be as unobtrusive as possible since the need to do this sort of thing is often temporary - Google recommends leaving them in place for a year. Just include the bundle and add a block of configuration for your redirect rules.
 
